@@ -155,6 +155,8 @@
     <EmbeddedResource Include="FrmSettings.resx">
       <DependentUpon>FrmSettings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resource.resx" />
+    <EmbeddedResource Include="Resource.zh-CN.resx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -185,4 +187,7 @@
     <Zip ZipFileName="pkg\$(ProjectName)_%(MyAssemblyIdentities.Version).zip" WorkingDirectory="pkg" Files="@(ZipFiles)" Flatten="true" Quiet="true" />
     <RemoveDir Directories="@(ZipFiles)" />
   </Target>
+  <PropertyGroup>
+    <PostBuildEvent>copy /Y "$(TargetDir)\*.*" "A:\Media\MusicBee\Plugins"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
