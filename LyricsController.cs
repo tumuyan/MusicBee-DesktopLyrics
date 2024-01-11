@@ -64,7 +64,7 @@
                 }
                 else
                 {
-                    for (var i = _currentEntryIndex; i < entries.Count; i++)
+                    for (var i = _currentEntryIndex + 2; i < entries.Count; i++)
                     {
                         if (entries[i].TimeMs > nTime)
                         {
