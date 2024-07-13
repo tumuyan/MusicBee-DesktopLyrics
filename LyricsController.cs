@@ -60,7 +60,10 @@
                 if (nTime <= _currentEntryEnd)
                 {
                     currentEntry = entries[_currentEntryIndex];
-                    nextEntry = entries[_currentEntryIndex];
+                    if (_currentEntryIndex + 1 < entries.Count)
+                        nextEntry = entries[_currentEntryIndex + 1];
+                    else
+                        nextEntry = emptyLyric;
                 }
                 else
                 {
@@ -70,7 +73,7 @@
                         {
                             currentEntry = entries[i - 1];
                             nextEntry = entries[i];
-                            _currentEntryIndex = i;
+                            _currentEntryIndex = i-1;
                             _currentEntryStart = currentEntry.TimeMs;
                             _currentEntryEnd = nextEntry.TimeMs;
 
@@ -90,7 +93,7 @@
                         {
                             currentEntry = entries[i - 1];
                             nextEntry = entries[i];
-                            _currentEntryIndex = i;
+                            _currentEntryIndex = i-1;
                             _currentEntryStart = currentEntry.TimeMs;
                             _currentEntryEnd = nextEntry.TimeMs;
                         }
@@ -134,5 +137,6 @@
         }
 
         public static LyricView emptyEntry = new LyricView("", "");
+        public static LyricParser.LyricEntry emptyLyric = new LyricParser.LyricEntry(double.MaxValue,"","");
     }
 }
