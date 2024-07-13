@@ -171,6 +171,7 @@ namespace MusicBeePlugin
             if (_frmLyrics == null) return;
             switch (state)
             {
+                case PlayState.Paused:
                 case PlayState.Stopped:
                     _frmLyrics.Visible = false;
                     break;
